@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			function opens(){
+			myWindow=window.open('','','width=260,height=100','background-color=aqua;');
+			myWindow.document.write("<div style='background-color: burlywood;'>");
+			myWindow.document.write("<p>用户名：<input type='text'/></p>");
+			myWindow.document.write("<p>密 码：<input type='text'/></p>");
+			myWindow.document.write("<p align='center'><input type='button' value='注册'/></p></div>");
+			myWindow.focus();
+}
+			function dl(){
+				window.open("dl.html");
+			}
+		</script>
+	</head>
+	
+	<body>
+		
+		<p>
+			<a href="#" onclick="opens()">注册</a>|
+		    <a href="#" onclick="dl()">登录</a>
+		</p>
+		
+	<p>这是主页面</p>
+	</body>
+</html>
