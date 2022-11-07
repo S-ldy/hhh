@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function AccoutTip(){
+	         var a=document.getElementById("account").value;
+	         var ac=document.getElementById("account-tip");
+       	         if( a==""){
+       		ac.innerHTML='<font color="pink">请输入账户!</font>';
+       	      }else{
+       	      	ac.innerHTML='';
+       	      }
+       	
+        }
+			 function PaswdTip(){
+       		var p=document.getElementById("password").value;
+       		var ps=document.getElementById("password-tip");
+       		if (p.length<6||p=="") {
+       			ps.innerHTML='<font color="pink">密码至少输入六位!</font>';
+       		} else{
+       			ps.innerHTML='';
+       		}
+       		
+       	}
+			 function PaswdsTip(){
+			 	var p1=document.getElementById("password").value;
+       		    var p2=document.getElementById("passwords").value;
+       		    var ps=document.getElementById("passwords-tip");
+       		if (p1!=p2) {
+       			ps.innerHTML='<font color="pink">密码不一致!</font>';
+       		} else{
+       			ps.innerHTML='';
+       		}
+       		
+       	}
+		</script>
+	</head>
+	<body>
+		 <div id="container-info">
+            <div id="form">
+                <table>
+                    <tr>
+                        <td colspan="2" style="text-align: center;" id="title">
+                            <font id="userInfo">用户登录</font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>账号：</td>
+                        <td>
+                             <input type="text" name="account" id="account" onblur="AccoutTip()"/> 
+                        </td>
+                        <td>
+                            <font id="account-tip"></font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>密码：</td>
+                        <td>
+                             <input type="password" name="password" id="password" onchange="PaswdTip()"> 
+                           
+                        </td>
+                        <td>
+                            <font id="password-tip"></font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>确认密码：</td>
+                        <td>
+                             <input type="password" name="password" id="passwords" onchange="PaswdsTip()"> 
+                           
+                        </td>
+                        <td>
+                            <font id="passwords-tip"></font>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+	</body>
+</html>

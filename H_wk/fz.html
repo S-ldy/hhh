@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>复制</title>
+		<script type="text/javascript">
+			function fz() {
+				var o=document.getElementById("one").value;
+			    var t=document.getElementById("two");
+			    t.value=o;
+			    var c=document.getElementById("content");
+			    c.innerHTML='复制成功';
+			}
+			
+		</script>
+	</head>
+	<body>
+		<input type="text" id="one"/>
+		<input type="button" id="fz" value="复制" onclick="fz()" />
+		<input type="text" id="two" readonly="readonly"/>
+		<P id="content">开始复制</P>
+	</body>
+</html>

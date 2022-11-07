@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>dom01</title>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        /* #container-info {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        } */
+        #userInfo {
+            font-size: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: bold;
+        }
+    </style>
+    <script type="text/javascript">
+			function AccoutTip(){
+	         var a=document.getElementById("account").value;
+	         var ac=document.getElementById("account-tip");
+       	         if( a==""){
+       		ac.innerHTML='<font color="pink">请输入账户!</font>';
+       	      }else{
+       	      	ac.innerHTML='';
+       	      }
+       	
+        }
+			 function PaswdTip(){
+       		var p=document.getElementById("password").value;
+       		var ps=document.getElementById("password-tip");
+       		if (p.length<6||p=="") {
+       			ps.innerHTML='<font color="pink">密码至少输入六位!</font>';
+       		} else{
+       			ps.innerHTML='';
+       		}
+       		
+       	}
+			 function PaswdsTip(){
+			 	var p1=document.getElementById("password").value;
+       		    var p2=document.getElementById("passwords").value;
+       		    var ps=document.getElementById("passwords-tip");
+	       		if (p1!=p2) {
+	       			ps.innerHTML='<font color="pink">密码不一致!</font>';
+	       		} else{
+	       			ps.innerHTML='';
+	       		}
+       		
+       	    }
+			function submitInfo() {
+				var a=document.getElementById("account").value;
+				var p=document.getElementById("password").value;
+				var s=document.getElementsByName("sex");
+				var b=document.getElementsByName("blood");
+				var x=document.getElementsByName("xg");
+				if(a == null || a == ""){
+					alert("姓名不能为空！");
+					return false;
+					}
+				if(p == null || p.length <6){
+					alert("密码不能为空\不能低于6位数");
+					return false;
+				}
+				var flags=0
+				for(var i=0;i<s.length;i++){
+		            
+		            if(s[i].checked == true){
+					   flags=1;
+		                break;
+				    }
+		            
+		        }
+		        if(!flags){
+		            alert("请选择性别!")
+		        } 
+		        var flags=0
+		        for(var i=0;i<b.length;i++){
+		            if(b[i].checked ==true){
+		                flags=1;
+		                break;
+		            }
+		        }
+		        if(!flags){
+		            alert("请选择血型!")
+		        }  
+		        var flags=0
+		        for(var i=0;i<x.length;i++){
+		            if(x[i].checked ==true){
+		                flags=1;
+		                break;
+		            }
+		        }
+		        if(!flags){
+		            alert("请选择血型!")
+		        }  
+			} 
+		</script>
+    
+</head>
+<body>
+    <div id="container-info">
+        <form>
+            <table>
+                <tr>
+                    <td colspan="2" style="text-align: center;" id="title">
+                        <font id="userInfo">用户注册信息</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>账号：</td>
+                    <td>
+                         <input type="text" name="account" id="account" onblur="AccoutTip()"/> 
+                    </td>
+                    <td>
+                        <font color="red" id="account-tip"></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>密码：</td>
+                    <td>
+                         <input type="password" name="password" id="password" onchange="PaswdTip()"> 
+                    </td>
+                    <td>
+                        <font color="red" id="password-tip"></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>性别：</td>
+                    <td>
+                        <input type="radio" name="sex" value="男">男
+                        <input type="radio" name="sex" value="女">女
+                    </td>
+                    <td>
+                        <font color="red" id="sex-tip"></font>
+                    </td>
+                </tr>
+                <tr>
+					<td>血型:</td>
+					<td>
+						<input type="radio" name="blood" value="O"/>O
+						<input type="radio" name="blood" value="A"/>A
+						<input type="radio" name="blood" value="B"/>B
+						<input type="radio" name="blood" value="AB"/>AB
+					</td>
+					</tr>
+                <tr>
+                    <td>性格：</td>
+                    <td>
+                        <input type="checkbox" name="xg" id="xg" value="热情大方" >热情大方
+                        <input type="checkbox" name="xg" id="xg" value="温柔体贴">温柔体贴
+                        <input type="checkbox" name="xg" id="xg" value="多愁善感">多愁善感
+                    </td>
+                    <td>
+                        <font color="red" id="xg-tip"></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>文件：</td>
+                    <td>
+                        <input type="text" name="wj" id="wj"/> 
+                        <input type="button" value="浏览..." />
+                    </td>
+                </tr>
+                <tr>
+                    <td>简介：</td>
+                    <td>
+                        <textarea name="info" id="info"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>城市：</td>
+                    <td>
+                         <select id="city" onchange="showCity(this.options[this.options.selectedIndex].value)">
+                            <option>成都市</option>
+                            <option>绵阳市</option>
+                            <option>德阳市</option>
+                            <option>宜宾市</option>
+                        </select> 
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <input type="submit" id="submit" onclick="submitInfo()" value="提交"/>
+                        <input type="reset" id="reset" onclick="resetInfo()" value="重置"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
